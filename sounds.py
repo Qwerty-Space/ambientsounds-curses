@@ -206,8 +206,7 @@ class MasterVolume(Volume):
                     if os.path.splitext(filename)[1] == ".ogg":
                         self.sounds.append(Sound(os.path.join(sounddir, filename), self))
 
-        print(self.sounds)
-        # self.sounds.sort()
+        self.sounds.sort(key=lambda sound: sound.name.lower())
         
         pygame.mixer.set_num_channels(len(self.sounds))
 
