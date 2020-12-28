@@ -212,7 +212,7 @@ class ScrollableList:
                 w.draw(y, width, y == self.selection)
             y += 1
 
-        ptop = max(0, min(self.selection - height/2, self.height-height-1))
+        ptop = int(max(0, min(self.selection - height/2, self.height-height-1)))
         self.pad.refresh(ptop, 0, stop, sleft, sbottom, sright)
 
     def on_key(self, c, ui):
