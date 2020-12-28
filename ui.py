@@ -84,10 +84,10 @@ class VolumeWidget(OneLineWidget):
         self.parent.addstr(y, 0, " "+self.volume.name+" ", attribute)
 
         # Position and width of the slider
-        slidex = self.namesw+5
-        slidew = width-slidex-2-1
-        slidewleft = (self.volume.get_volume()*slidew)/100
-        slidewright = slidew-slidewleft
+        slidex = int(self.namesw+5)
+        slidew = int(width-slidex-2-1)
+        slidewleft = int((self.volume.get_volume()*slidew)/100)
+        slidewright = int(slidew-slidewleft)
 
         # Draw the slider
         self.parent.addstr(y, slidex-2, "[ ")
@@ -288,7 +288,7 @@ class MessageView:
         y = (height-messageheight)/2
         for text in self.message:
             x = (width-len(text))/2
-            self.pad.addstr(y, x, text)
+            self.pad.addstr(int(y), int(x), text)
             y += 1
 
         self.pad.refresh(0, 0, stop, sleft, sbottom, sright)
