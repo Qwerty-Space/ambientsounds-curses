@@ -109,6 +109,8 @@ class VolumeWidget(OneLineWidget):
             # Full volume
         elif c == ord('f'):
             self.volume.set_volume(100)
+        elif chr(c) in "123456789":
+            self.volume.set_volume(int(chr(c)) * 10)
         else:
             return False
         return True
