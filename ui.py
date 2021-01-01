@@ -106,9 +106,10 @@ class VolumeWidget(OneLineWidget):
         elif c == ord('m'):
             # Mute
             self.volume.set_volume(0)
-            # Full volume
-        elif c == ord('f'):
+        # Full volume
+        elif chr(c) in "0f":
             self.volume.set_volume(100)
+        # Set volume percent
         elif chr(c) in "123456789":
             self.volume.set_volume(int(chr(c)) * 10)
         else:
