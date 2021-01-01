@@ -149,7 +149,7 @@ class Preset:
         Apply the preset
         """
         for sound in self.master.get_sounds():
-            if self.volumes.has_key(sound.name):
+            if sound.name in self.volumes:
                 sound.set_volume(self.volumes[sound.name])
             else:
                 sound.set_volume(0)
@@ -162,7 +162,7 @@ class Preset:
         for sound in self.master.get_sounds():
             volume = sound.get_volume()
             if volume == 0:
-                if self.volumes.has_key(sound.name):
+                if sound.name in self.volumes:
                     self.volumes.pop(sound.name)
             else:
                 self.volumes[sound.name] = volume
